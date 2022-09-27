@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Todos is a website project from Technopolis VK"/>
+    <title>todos</title>
+    <link rel="stylesheet" href="style/layout.css"/>
+    <script src="scripts/script.js"></script>
+</head>
+<body>
+<header>
+    <h1>todos</h1>
+</header>
+<main>
+    <section class="content">
+        <div class="dropdown-list">
+            <header class="dropdown-list-header">
+                <label for="search-todos">
+                    <input type="text" id="search-todos" placeholder="What needs to be done?">
+                </label>
+            </header>
+            <section class="checklist">
+                <div class="section-todos1">
+                    <label for="todos1">
+                        <input type="checkbox" id="todos1" name="HTML"> HTML
+                    </label>
+                </div>
+                <div class="section-todos2">
+                    <label for="todos2">
+                        <input type="checkbox" id="todos2" name="CSS" checked> CSS
+                    </label>
+                </div>
+                <div class="section-todos3">
+                    <label for="todos3">
+                        <input type="checkbox" id="todos3" name="JS"> JS
+                    </label>
+                </div>
+                <div class="section-todos4">
+                    <label for="todos4">
+                        <input type="checkbox" id="todos4" name="JS tools"> JS tools
+                    </label>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-text">
+                    3 items left
+                </div>
+                <button class="button-all" href="#">
+                    All
+                </button>
+                <button class="button-active" href="#">
+                    Active
+                </button>
+                <button class="button-completed" href="#">
+                    Completed
+                </button>
+                <div class="footer-text-second">
+                    Clear completed
+                </div>
+            </div>
+        </footer>
+    </section>
+</main>
+</body>
