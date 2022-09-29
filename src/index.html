@@ -4,8 +4,8 @@
     <meta charset="UTF-8"/>
     <meta name="description" content="Todos is a website project from Technopolis VK"/>
     <title>todos</title>
-    <link rel="stylesheet" href="style/layout.css"/>
-    <script src="scripts/script.js"></script>
+<!--    <link rel="stylesheet" href="style/layout.css"/>-->
+<!--        <script src="scripts/script.js"></script>-->
 </head>
 <body>
 <header>
@@ -18,46 +18,60 @@
                 <label for="search-todos">
                     <input type="text" id="search-todos" placeholder="What needs to be done?">
                 </label>
+                <button class="button-down-arrow">
+                    <object id="down-arrow" type="image/svg+xml" data="images/down_arrow.svg">
+                        Your browser does not support SVG
+                    </object>
+                </button>
             </header>
-            <section class="checklist">
-                <div class="section-todos1">
+            <article class="checklist">
+                <div class="section-todos">
                     <label for="todos1">
                         <input type="checkbox" id="todos1" name="HTML"> HTML
                     </label>
+                    <button class="button-delete">
+                        <object id="delete" type="image/svg+xml" data="images/delete.svg">
+                            Your browser does not support SVG
+                        </object>
+                    </button>
                 </div>
-                <div class="section-todos2">
+                <div class="section-todos">
                     <label for="todos2">
                         <input type="checkbox" id="todos2" name="CSS" checked> CSS
                     </label>
                 </div>
-                <div class="section-todos3">
+                <div class="section-todos">
                     <label for="todos3">
                         <input type="checkbox" id="todos3" name="JS"> JS
                     </label>
                 </div>
-                <div class="section-todos4">
+                <div class="section-todos">
                     <label for="todos4">
                         <input type="checkbox" id="todos4" name="JS tools"> JS tools
                     </label>
                 </div>
-            </section>
+            </article>
         </div>
         <footer class="footer">
             <div class="footer-container">
-                <div class="footer-text">
+                <div class="footer-number-remaining-todos">
                     3 items left
                 </div>
-                <button class="button-all" href="#">
-                    All
-                </button>
-                <button class="button-active" href="#">
-                    Active
-                </button>
-                <button class="button-completed" href="#">
-                    Completed
-                </button>
-                <div class="footer-text-second">
-                    Clear completed
+                <section class="buttons">
+                    <button class="button-all">
+                        All
+                    </button>
+                    <button class="button-active">
+                        Active
+                    </button>
+                    <button class="button-completed">
+                        Completed
+                    </button>
+                </section>
+                <div class="footer-cleaning-action">
+                    <button class="button-clear">
+                        Clear completed
+                    </button>
                 </div>
             </div>
         </footer>
