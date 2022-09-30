@@ -4,8 +4,6 @@
     <meta charset="UTF-8"/>
     <meta name="description" content="Todos is a website project from Technopolis VK"/>
     <title>todos</title>
-<!--    <link rel="stylesheet" href="style/layout.css"/>-->
-<!--        <script src="scripts/script.js"></script>-->
 </head>
 <body>
 <header>
@@ -19,9 +17,6 @@
                     <input type="text" id="search-todos" placeholder="What needs to be done?">
                 </label>
                 <button class="button-down-arrow">
-                    <object id="down-arrow" type="image/svg+xml" data="images/down_arrow.svg">
-                        Your browser does not support SVG
-                    </object>
                 </button>
             </header>
             <article class="checklist">
@@ -30,25 +25,22 @@
                         <input type="checkbox" id="todos1" name="HTML"> HTML
                     </label>
                     <button class="button-delete">
-                        <object id="delete" type="image/svg+xml" data="images/delete.svg">
-                            Your browser does not support SVG
-                        </object>
                     </button>
                 </div>
                 <div class="section-todos">
-                    <label for="todos2">
-                        <input type="checkbox" id="todos2" name="CSS" checked> CSS
-                    </label>
+                    <label>
+                        <input type="checkbox" name="CSS" checked>
+                    </label> CSS
                 </div>
                 <div class="section-todos">
-                    <label for="todos3">
-                        <input type="checkbox" id="todos3" name="JS"> JS
-                    </label>
+                    <label>
+                        <input type="checkbox" name="JS">
+                    </label> JS
                 </div>
                 <div class="section-todos">
-                    <label for="todos4">
-                        <input type="checkbox" id="todos4" name="JS tools"> JS tools
-                    </label>
+                    <label>
+                        <input type="checkbox" name="JS tools">
+                    </label> JS tools
                 </div>
             </article>
         </div>
