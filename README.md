@@ -1,1 +1,5 @@
-# Vlad_Korzh
+# Website project "Todos"
+
+## Technopolis VK
+
+> Author: Korzh Vladislav 
