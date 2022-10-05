@@ -14,44 +14,47 @@
         <div class="todo-app-dropdown-list">
             <header class="todo-app-dropdown-list-header">
                 <label>
-                    <input type="text" id="search-todos" placeholder="What needs to be done?">
+                    <input type="text" id="search-todos" aria-label="Find tasks" placeholder="What needs to be done?">
                 </label>
-                <button class="button-down-arrow">
-                </button>
+                <button aria-label="Select all tasks" class="button-down-arrow"></button>
             </header>
             <article class="todo-app-checklist">
                 <div class="section-todos">
                     <label>
-                        <input type="checkbox" id="todos1" name="HTML">
-                    </label> HTML
-                    <button class="button-delete"></button>
+                        <input type="checkbox" class="todo-item-status" aria-label="Task: HTML">
+                        <span class="todo-item-text">HTML</span>
+                    </label>
+                    <button aria-label="Delete this task" class="button-delete"></button>
                     <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="HTML" aria-label="Edit task: HTML"/>
+                        <input type="text" class="todo-input" value="HTML" aria-label="Edit task: HTML">
                     </div>
                 </div>
                 <div class="section-todos">
                     <label>
-                        <input type="checkbox" name="CSS" checked>
-                    </label> CSS
-                    <button class="button-delete"></button>
+                        <input type="checkbox" class="todo-item-status" aria-label="Task: CSS" checked>
+                        <span class="todo-item-text">CSS</span>
+                    </label>
+                    <button aria-label="Delete this task" class="button-delete"></button>
                     <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="CSS" aria-label="Edit task: CSS"/>
+                        <input type="text" class="todo-input" value="CSS" aria-label="Edit task: CSS">
                     </div>
                 </div>
                 <div class="section-todos">
                     <label>
-                        <input type="checkbox" name="JS">
-                    </label> JS
-                    <button class="button-delete"></button>
+                        <input type="checkbox" class="todo-item-status" aria-label="Task: JS">
+                        <span class="todo-item-text">JS</span>
+                    </label>
+                    <button aria-label="Delete this task" class="button-delete"></button>
                     <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="JS" aria-label="Edit task: JS"/>
+                        <input type="text" class="todo-input" value="JS" aria-label="Edit task: JS">
                     </div>
                 </div>
                 <div class="section-todos">
                     <label>
-                        <input type="checkbox" name="JS tools">
-                    </label> JS tools
-                    <button class="button-delete"></button>
+                        <input type="checkbox" class="todo-item-status" aria-label="Task: JS tools">
+                        <span class="todo-item-text">JS tools</span>
+                    </label>
+                    <button aria-label="Delete this task" class="button-delete"></button>
                     <div class="todo-edit" hidden="hidden">
                         <input type="text" class="todo-input" value="JS tools" aria-label="Edit task: JS tools"/>
                     </div>
@@ -63,19 +66,19 @@
                 <div class="footer-number-remaining-todos">
                     3 items left
                 </div>
-                <section class="buttons">
+                <section class="buttons-filter" aria-label="Filter tasks">
                     <label>
-                        <input type="radio" name="button" checked>
+                        <input type="radio" class="button-all" aria-label="See all tasks" checked>
                     </label> All
                     <label>
-                        <input type="radio" name="button">
+                        <input type="radio" class="button-active" aria-label="See active tasks">
                     </label> Active
                     <label>
-                        <input type="radio" name="button">
+                        <input type="radio" class="button-completed" aria-label="See completed tasks">
                     </label> Completed
                 </section>
                 <div class="footer-cleaning-action">
-                    <button class="button-clear">
+                    <button aria-label="Clear tasks" class="button-clear">
                         Clear completed
                     </button>
                 </div>
