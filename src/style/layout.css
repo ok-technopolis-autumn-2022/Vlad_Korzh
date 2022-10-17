@@ -1,0 +1,128 @@
+@import url(fonts.css);
+
+h1 {
+    text-align: center;
+
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 100px;
+    line-height: 21px;
+    letter-spacing: -2.5px;
+
+    color: #CCCCCC;
+}
+
+.todo-app-dropdown-list-header {
+    width: 562px;
+    height: 66px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0 -1px 0 #E6E6E6;
+}
+
+.todo-app-dropdown-list {
+    margin: 0 auto;
+    width: 562px;
+    height: 402px;
+
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-down-arrow {
+    float: left;
+    width: 28px;
+    height: 16px;
+}
+
+#search-todos {
+    font-family: 'Roboto', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 21px;
+
+    text-align: left;
+    letter-spacing: -0.6px;
+
+    color: #CCCCCC;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todo-app-checklist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 21px;
+    letter-spacing: -0.6px;
+
+    color: #666666;
+}
+
+.section-todos {
+    width: 562px;
+    height: 64px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0 -1px 0 #E6E6E6;
+}
+
+.button-delete {
+    float: right;
+    width: 20px;
+    height: 20px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 562px;
+    height: 43px;
+
+    box-shadow: inset 0 1px 0 #E6E6E6;
+}
+
+.todo-app-footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 562px;
+
+    font-family: 'Roboto', serif;
+    font-size: 14px;
+    background: #FFFFFF;
+    color: #888888;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer-number-remaining-todos {
+    line-height: 35px;
+}
+
+.buttons {
+    line-height: 35px;
+}
+
+.footer-cleaning-action {
+    line-height: 35px;
+}
+
+.button-clear {
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.35px;
+
+    color: #888888;
+    background: #FFFFFF;
+    border: none;
+}
