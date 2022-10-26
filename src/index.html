@@ -70,14 +70,14 @@
             <div class="todo-app-footer-container">
                 <div class="footer-number-remaining-todos">
                     3 items left
-                </div>
+            </div>
                 <section class="buttons-filter" aria-label="Filter tasks">
-                    <input type="radio" class="button-all" aria-label="See all tasks" checked>
-                    <label>All</label>
-                    <input type="radio" class="button-active" aria-label="See active tasks">
-                    <label>Active</label>
-                    <input type="radio" class="button-completed" aria-label="See completed tasks">
-                    <label>Completed</label>
+                    <input id="all" type="radio"  name="filter" aria-label="See all tasks" checked>
+                    <label for="all">All</label>
+                    <input id="active" type="radio" name="filter"  aria-label="See active tasks">
+                    <label for="active">Active</label>
+                    <input id="completed" type="radio" name="filter"  aria-label="See completed tasks">
+                    <label for="completed">Completed</label>
                 </section>
                 <div class="footer-cleaning-action">
                     <button aria-label="Clear tasks" class="button-clear">
