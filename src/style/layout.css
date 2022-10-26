@@ -40,6 +40,7 @@ h1 {
 }
 
 #search-todos {
+    flex-grow: 1;
     min-height: 66px;
     font-family: 'Roboto', serif;
     font-style: italic;
@@ -77,6 +78,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    white-space: nowrap;
     height: 64px;
     background: #FFFFFF;
     border-bottom: inset 1px #E6E6E6;
@@ -84,6 +86,10 @@ h1 {
 
 .section-todos:hover {
     background: #FAFAFA;
+}
+
+label {
+    overflow: hidden;
 }
 
 .todo-item-status {
@@ -105,8 +111,13 @@ h1 {
     border: 1px solid #5DC2AF;
 }
 
+.todo-item-status:focus-visible {
+    border: 1px solid #888888;
+}
+
 .todo-item-status:checked + .todo-item-text {
     text-decoration: line-through;
+    color: #CCCCCC;
 }
 
 .button-delete {
@@ -116,12 +127,16 @@ h1 {
     background-size: 50%;
     appearance: none;
     -webkit-appearance: none;
-    width: 50px;
-    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     opacity: 0;
 }
 
 .button-delete:hover {
+    opacity: 1;
+}
+
+.button-delete:focus {
     opacity: 1;
 }
 
@@ -143,7 +158,6 @@ h1 {
 
 .buttons-filter label {
     padding: 2px 10px;
-    margin: 0 5px;
     border-radius: 5%;
     cursor: pointer;
 }
@@ -153,7 +167,11 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + label {
-    border: 1px solid #EBDFDF;
+    outline: 1px solid #EBDFDF;
+}
+
+input[type="radio"]:focus-visible + label {
+    outline: 1px solid #888888;
 }
 
 .button-clear {
@@ -168,4 +186,20 @@ input[type="radio"]:checked + label {
     background: #FFFFFF;
     border: none;
     cursor: pointer;
+}
+
+.todo-app-dropdown-list-decoration-first {
+    min-width: 562px;
+    height: 5px;
+    z-index: -1;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todo-app-dropdown-list-decoration-second {
+    min-width: 562px;
+    height: 5px;
+    z-index: -2;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
