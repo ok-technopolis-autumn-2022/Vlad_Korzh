@@ -35,8 +35,8 @@ h1 {
     cursor: pointer;
 
     margin: 10px;
-    width: 40px;
-    height: 40px;
+    min-width: 30px;
+    min-height: 25px;
 }
 
 #search-todos {
