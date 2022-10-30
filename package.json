@@ -1,0 +1,45 @@
+{
+  "name": "todo_app_sold666",
+  "version": "1.0.0",
+  "description": "## Technopolis VK",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel",
+    "build": "parcel build",
+    "watch:css": "postcss src/style/layout.css -o src/post_css/style.css -w",
+    "build:css": "postcss src/style/layout.css -o src/post_css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ok-technopolis-autumn-2022/Vlad_Korzh.git"
+  },
+  "author": "Vlad Korzh",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/resolver-glob": "^2.7.0",
+    "@parcel/transformer-json": "^2.7.0",
+    "cssnano": "^5.1.14",
+    "parcel": "^2.7.0",
+    "postcss": "^8.4.18",
+    "postcss-cli": "^10.0.0",
+    "postcss-import": "^15.0.0",
+    "postcss-load-config": "^4.0.1",
+    "postcss-nested": "^6.0.0",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.14.0",
+    "stylelint-config-standard": "^29.0.0"
+  },
+  "dependencies": {
+    "@parcel/transformer-postcss": "^2.7.0",
+    "autoprefixer": "^10.4.13",
+    "postcss-preset-env": "^7.8.2",
+    "precss": "^4.0.0",
+    "reseter.css": "^2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ok-technopolis-autumn-2022/Vlad_Korzh/issues"
+  },
+  "homepage": "https://github.com/ok-technopolis-autumn-2022/Vlad_Korzh#readme"
+}

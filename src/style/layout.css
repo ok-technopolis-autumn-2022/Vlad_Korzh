@@ -8,7 +8,7 @@ h1 {
     font-size: 100px;
     line-height: 21px;
 
-    color: #CCCCCC;
+    color: #cccccc;
 }
 
 .content {
@@ -22,8 +22,8 @@ h1 {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: left;
-    background: #FFFFFF;
-    border-bottom: inset 1px #E6E6E6;
+    background: #ffffff;
+    border-bottom: inset 1px #e6e6e6;
 }
 
 .button-down-arrow {
@@ -50,7 +50,7 @@ h1 {
 
     text-align: left;
 
-    color: #CCCCCC;
+    color: #cccccc;
     border: none;
 }
 
@@ -59,8 +59,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     width: 562px;
-    background: #FFFFFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 20%);
     overflow: hidden;
 }
 
@@ -71,7 +71,7 @@ h1 {
     font-size: 24px;
     line-height: 21px;
 
-    color: #666666;
+    color: #666;
 }
 
 .section-todos {
@@ -80,8 +80,8 @@ h1 {
     align-items: center;
     white-space: nowrap;
     height: 64px;
-    background: #FFFFFF;
-    border-bottom: inset 1px #E6E6E6;
+    background: #ffffff;
+    border-bottom: inset 1px #e6e6e6;
 }
 
 .section-todos:hover {
@@ -97,8 +97,8 @@ label {
     height: 40px;
     border-radius: 50%;
     vertical-align: middle;
-    background: #FFFFFF;
-    border: 1px solid #E6E6E6;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
     appearance: none;
     -webkit-appearance: none;
     outline: none;
@@ -108,16 +108,16 @@ label {
 .todo-item-status:checked {
     background: url("../images/check_mark.png") no-repeat center;
     background-size: 50%;
-    border: 1px solid #5DC2AF;
+    border: 1px solid #5dc2af;
 }
 
 .todo-item-status:focus-visible {
-    border: 1px solid #888888;
+    border: 1px solid #888;
 }
 
 .todo-item-status:checked + .todo-item-text {
     text-decoration: line-through;
-    color: #CCCCCC;
+    color: #cccccc;
 }
 
 .button-delete {
@@ -151,9 +151,9 @@ label {
     font-family: 'Roboto', serif;
     font-style: normal;
     font-size: 18px;
-    background: #FFFFFF;
-    color: #888888;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    color: #888;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 20%);
 }
 
 .buttons-filter label {
@@ -171,7 +171,7 @@ input[type="radio"]:checked + label {
 }
 
 input[type="radio"]:focus-visible + label {
-    outline: 1px solid #888888;
+    outline: 1px solid #888;
 }
 
 .button-clear {
@@ -182,8 +182,8 @@ input[type="radio"]:focus-visible + label {
     appearance: none;
     -webkit-appearance: none;
 
-    color: #888888;
-    background: #FFFFFF;
+    color: #888;
+    background: #ffffff;
     border: none;
     cursor: pointer;
 }
@@ -192,14 +192,14 @@ input[type="radio"]:focus-visible + label {
     min-width: 562px;
     height: 5px;
     z-index: -1;
-    background: #FFFFFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 20%);
 }
 
 .todo-app-dropdown-list-decoration-second {
     min-width: 562px;
     height: 5px;
     z-index: -2;
-    background: #FFFFFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 20%);
 }
