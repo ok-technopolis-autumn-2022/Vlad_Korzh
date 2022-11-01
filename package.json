@@ -5,10 +5,8 @@
   "source": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel",
-    "build": "parcel build",
-    "watch:css": "postcss src/style/layout.css -o src/post_css/style.css -w",
-    "build:css": "postcss src/style/layout.css -o src/post_css/style.css"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
@@ -23,7 +21,6 @@
     "parcel": "^2.7.0",
     "postcss": "^8.4.18",
     "postcss-cli": "^10.0.0",
-    "postcss-import": "^15.0.0",
     "postcss-load-config": "^4.0.1",
     "postcss-nested": "^6.0.0",
     "postcss-url": "^10.1.3",
