@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap"
           rel="stylesheet">
+    <script src = "src/scripts/index.js" defer></script>
 </head>
 <body>
 <header>
@@ -21,54 +22,11 @@
                 <input type="text" id="search-todos" aria-label="Find tasks" placeholder="What needs to be done?">
                 <button title="Select all tasks" aria-label="Select all tasks" class="button-down-arrow"></button>
             </header>
-            <article class="todo-app-checklist">
-                <div class="section-todos">
-                    <label>
-                        <input type="checkbox" class="todo-item-status" aria-label="Task: HTML">
-                        <span class="todo-item-text">HTML</span>
-                    </label>
-                    <button title="Delete this task" aria-label="Delete this task" class="button-delete"></button>
-                    <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="HTML" aria-label="Edit task: HTML">
-                    </div>
-                </div>
-                <div class="section-todos">
-                    <label>
-                        <input type="checkbox" class="todo-item-status" aria-label="Task: CSS" checked>
-                        <span class="todo-item-text">CSS</span>
-                    </label>
-                    <button title="Delete this task" aria-label="Delete this task" class="button-delete"></button>
-                    <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="CSS" aria-label="Edit task: CSS">
-                    </div>
-                </div>
-                <div class="section-todos">
-                    <label>
-                        <input type="checkbox" class="todo-item-status" aria-label="Task: JS">
-                        <span class="todo-item-text">JS</span>
-                    </label>
-                    <button title="Delete this task" aria-label="Delete this task" class="button-delete"></button>
-                    <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="JS" aria-label="Edit task: JS">
-                    </div>
-                </div>
-                <div class="section-todos">
-                    <label>
-                        <input type="checkbox" class="todo-item-status" aria-label="Task: JS tools">
-                        <span class="todo-item-text">JS tools</span>
-                    </label>
-                    <button title="Delete this task" aria-label="Delete this task" class="button-delete"></button>
-                    <div class="todo-edit" hidden="hidden">
-                        <input type="text" class="todo-input" value="JS tools" aria-label="Edit task: JS tools"/>
-                    </div>
-                </div>
-            </article>
+            <article class="todo-app-checklist"></article>
         </div>
         <footer class="footer">
             <div class="todo-app-footer-container">
-                <div class="footer-number-remaining-todos">
-                    3 items left
-                </div>
+                <div class="footer-number-remaining-todos"></div>
                 <section class="buttons-filter" aria-label="Filter tasks">
                     <input id="all" type="radio" name="filter" aria-label="See all tasks" checked>
                     <label for="all">All</label>
