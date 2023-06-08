@@ -1,138 +1,175 @@
-const todoInput = document.querySelector("#search-todos");
-const todosCheckList = document.querySelector(".todo-app-checklist");
-const filters = document.querySelectorAll(".buttons-filter input");
-const clearAll = document.querySelector(".button-clear");
-const numberTodos = document.querySelector(".footer-number-remaining-todos");
-const selectAll = document.querySelector(".button-down-arrow");
-const listKey = "todo-list";
-const numKey = "todos-number";
-const notification = `<p>
-                        <style>
-                            p {
-                                margin: 15px 0 15px 15px;
-                            }
-                        </style>
-                         You haven't added any tasks
-                     </p>`;
+// Ожидаем загрузку DOM-дерева
+document.addEventListener("DOMContentLoaded", function () {
+        // Получаем ссылки на элементы DOM
+        const todoForm = document.querySelector(".todo-form");
+        const todoInput = document.querySelector("#input_todo");
+        const todoList = document.querySelector(".todo-app-checklist");
+        const filterButtons = document.querySelectorAll('input[name="filter"]');
+        const clearButton = document.querySelector(".button-clear");
 
-var count = getNumberOfTodoFromStorage();
-let todos = getListFromStorage();
+        // Слушатель события отправки формы
+        todoForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Отменяем обычное поведение формы
 
-function showTodoOnPage(filter) {
-    createNewTodo(filter);
-}
+            const todoText = todoInput.value.trim(); // Получаем введенный текст задачи
 
-function createNewTodo(filter) {
-    let newTask = "";
-    if (todos) {
-        todos.forEach((task, id) => {
-            let isCompleted = task.status;
-            if (isCompleted === "completed") {
-                isCompleted = "checked";
-            } else {
-                isCompleted = "";
-            }
-            if (filter === task.status || filter === "all") {
-                newTask += `<div class="section-todos">
-                                <label for="${id}">
-                                    <input id="${id}" type="checkbox" class="todo-item-status" aria-label="Task: ${task.name}" onclick="updateStatus(this)" ${isCompleted}>
-                                    <span class="todo-item-text" ${isCompleted}>${task.name}</span>
-                                </label>
-                                <button title="Delete this task" aria-label="Delete this task" class="button-delete" onclick="deleteTask(${id})"></button>
-                            </div>`;
+            if (todoText !== "") {
+                // Создаем объект задачи
+                const todoItem = {
+                    id: Date.now(),
+                    text: todoText,
+                    completed: false
+                };
+
+                // Получаем текущие задачи из LocalStorage (если они есть)
+                let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+                // Добавляем новую задачу в список задач
+                todos.push(todoItem);
+
+                // Сохраняем обновленный список задач в LocalStorage
+                localStorage.setItem("todos", JSON.stringify(todos));
+
+                // Очищаем поле ввода задачи
+                todoInput.value = "";
+
+                // Обновляем отображение списка задач
+                displayTodos(todos);
             }
         });
-    }
-    todosCheckList.innerHTML = newTask || notification;
-    numberTodos.innerHTML = `${count} items left`;
-}
 
-showTodoOnPage("all");
+        // Слушатель события клика на кнопке "Select all tasks"
+        const selectAllButton = document.querySelector(".button-down-arrow");
+        selectAllButton.addEventListener("click", function () {
+            const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-function updateStatus(selectedTask) {
-    let todoName = selectedTask.parentElement.lastElementChild;
-    if (selectedTask.checked) {
-        todoName.classList.add("checked");
-        todos[selectedTask.id].status = "completed";
-    } else {
-        todoName.classList.remove("checked");
-        todos[selectedTask.id].status = "active";
-    }
-    localStorage.setItem(listKey, JSON.stringify(todos));
-}
+            // Проверяем, есть ли хотя бы одна незавершенная задача
+            const hasIncompleteTasks = todos.some(todo => !todo.completed);
 
-function deleteTask(id) {
-    todos.splice(id, 1);
-    localStorage.setItem(listKey, JSON.stringify(todos));
-    decrementCount();
-    localStorage.setItem(numKey, count);
-    showTodoOnPage("all");
-}
+            // Если есть незавершенные задачи, то помечаем их все как выполненные,
+            // иначе снимаем отметку выполнения со всех задач
+            const updatedTodos = todos.map(todo => ({
+                ...todo,
+                completed: hasIncompleteTasks
+            }));
 
-function getListFromStorage() {
-    const storedList = localStorage.getItem(listKey);
-    return storedList ? JSON.parse(storedList) : [];
-}
+            // Сохраняем обновленный список задач в LocalStorage
+            localStorage.setItem("todos", JSON.stringify(updatedTodos));
 
-function getNumberOfTodoFromStorage() {
-    const number = localStorage.getItem(numKey);
-    return number ? JSON.parse(number) : 0;
-}
+            // Обновляем отображение списка задач
+            displayTodos(updatedTodos);
+        });
 
-function incrementCount() {
-    count++;
-}
+        // Слушатель события клика на кнопке "Clear completed"
+        clearButton.addEventListener("click", function () {
+            let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-function decrementCount() {
-    count--;
-}
+            // Фильтруем только незавершенные задачи
+            todos = todos.filter(todo => !todo.completed);
 
-filters.forEach(button => {
-    button.addEventListener("click", () => {
-        document.querySelector(".buttons-filter input:checked").removeAttribute("checked");
-        button.classList.add("checked");
-        showTodoOnPage(button.id);
-    });
-});
+            // Сохраняем обновленный список задач в LocalStorage
+            localStorage.setItem("todos", JSON.stringify(todos));
 
-clearAll.addEventListener("click", () => {
-    todos.splice(0, todos.length);
-    localStorage.setItem(listKey, JSON.stringify(todos));
-    count = 0;
-    localStorage.setItem(numKey, count);
-    showTodoOnPage("all");
-})
+            // Обновляем отображение списка задач
+            displayTodos(todos);
+        });
 
-selectAll.addEventListener("click", evt => {
-    document.querySelectorAll("input[type=checkbox]").forEach(task => {
-        if (!task.checked) {
-            todos.forEach(task => task.status = "completed");
-            localStorage.setItem(listKey, JSON.stringify(todos));
-            showTodoOnPage("all");
-        } else {
-            todos.forEach(task => task.status = "active");
-            localStorage.setItem(listKey, JSON.stringify(todos));
-            showTodoOnPage("all");
+        // Слушатель события изменения фильтра задач
+        filterButtons.forEach(button => {
+            button.addEventListener("change", function () {
+                let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+                if (this.id === "active") {
+                    // Отображаем только незавершенные задачи
+                    todos = todos.filter(todo => !todo.completed);
+                } else if (this.id === "completed") {
+                    // Отображаем только выполненные задачи
+                    todos = todos.filter(todo => todo.completed);
+                }
+
+                // Обновляем отображение списка задач
+                displayTodos(todos);
+            });
+        });
+
+        // Функция для отображения списка задач
+        function displayTodos(todos) {
+            // Очищаем текущий список задач
+            todoList.innerHTML = "";
+
+            if (todos.length === 0) {
+                // Создаем элемент уведомления
+                const notification = document.createElement("p");
+                notification.innerText = "You haven't added and completed any tasks";
+                todoList.appendChild(notification);
+            } else {
+                // Создаем элементы задач и добавляем их в список
+                todos.forEach(todo => {
+                    const todoItem = document.createElement("div");
+                    todoItem.classList.add("section-todos");
+
+                    // Создаем элементы для отображения статуса и текста задачи
+                    const todoStatus = document.createElement("input");
+                    todoStatus.type = "checkbox";
+                    todoStatus.classList.add("todo-item-status");
+                    todoStatus.checked = todo.completed;
+                    todoStatus.addEventListener("change", function () {
+                        todo.completed = !todo.completed;
+
+                        // Сохраняем обновленный список задач в LocalStorage
+                        localStorage.setItem("todos", JSON.stringify(todos));
+
+                        // Обновляем отображение списка задач
+                        displayTodos(todos);
+                    });
+
+                    const todoText = document.createElement("p");
+                    todoText.classList.add("todo-item-text");
+                    todoText.textContent = todo.text;
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.classList.add("button-delete");
+                    deleteButton.addEventListener("click", function () {
+                        // Удаляем задачу из списка
+                        todos = todos.filter(item => item.id !== todo.id);
+
+                        // Сохраняем обновленный список задач в LocalStorage
+                        localStorage.setItem("todos", JSON.stringify(todos));
+
+                        // Обновляем отображение списка задач
+                        displayTodos(todos);
+                    });
+
+                    // Добавляем созданные элементы в элемент задачи
+                    todoItem.appendChild(todoStatus);
+                    todoItem.appendChild(todoText);
+                    todoItem.appendChild(deleteButton);
+
+                    // Добавляем элемент задачи в список задач
+                    todoList.appendChild(todoItem);
+                });
+
+                // Обновляем количество оставшихся задач
+                updateRemainingTodosCount(todos);
+            }
         }
-    });
-})
 
-todoInput.addEventListener("keyup", evt => {
-    let todo = todoInput.value.trim();
-    if (evt.key === "Enter" && todo) {
-        if (!todos) {
-            todos = [];
+        // Функция для обновления количества оставшихся задач
+        function updateRemainingTodosCount(todos) {
+            const remainingTodos = todos.filter(todo => !todo.completed);
+            const remainingCount = remainingTodos.length;
+
+            const footerNumberRemainingTodos = document.querySelector(
+                ".footer-number-remaining-todos"
+            );
+            footerNumberRemainingTodos.textContent =
+                remainingCount > 1
+                    ? `${remainingCount} tasks left`
+                    : `${remainingCount} task left`;
         }
-        todo.value = "";
-        let todoInfo = {
-            name: todo,
-            status: "active"
-        };
-        todos.push(todoInfo);
-        localStorage.setItem(listKey, JSON.stringify(todos));
-        incrementCount();
-        localStorage.setItem(numKey, count);
-        showTodoOnPage("all");
-        todoInput.value = "";
+
+        // Получаем список задач из LocalStorage и отображаем его
+        const todos = JSON.parse(localStorage.getItem("todos")) || [];
+        displayTodos(todos);
     }
-})
+);

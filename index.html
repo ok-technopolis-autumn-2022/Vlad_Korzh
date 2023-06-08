@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap"
           rel="stylesheet">
-    <script src = "src/scripts/index.js" defer></script>
+    <script src="src/scripts/index.js" type="module" defer></script>
 </head>
 <body>
 <header>
@@ -19,7 +19,9 @@
     <section class="content">
         <div class="todo-app-dropdown-list">
             <header class="todo-app-dropdown-list-header">
-                <input type="text" id="search-todos" aria-label="Find tasks" placeholder="What needs to be done?">
+                <form class="todo-form">
+                    <input type="text" id="input_todo" aria-label="Find tasks" placeholder="What needs to be done?">
+                </form>
                 <button title="Select all tasks" aria-label="Select all tasks" class="button-down-arrow"></button>
             </header>
             <article class="todo-app-checklist"></article>

@@ -45,7 +45,12 @@ h1 {
     min-height: 25px;
 }
 
-#search-todos {
+.todo-form {
+    display: flex;
+    flex-grow: 1;
+}
+
+#input_todo {
     flex-grow: 1;
     min-height: 66px;
     font-family: 'Roboto', serif;
@@ -96,9 +101,11 @@ h1 {
 
 label {
     overflow: hidden;
+    width: auto;
 }
 
 .todo-item-status {
+    flex-shrink: 0;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -109,6 +116,7 @@ label {
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
+    box-sizing: content-box;
 }
 
 .todo-item-status:checked {
@@ -136,6 +144,7 @@ label {
     min-width: 50px;
     min-height: 50px;
     opacity: 0;
+    margin-left: auto;
 }
 
 .button-delete:hover {
@@ -208,4 +217,15 @@ input[type="radio"]:focus-visible + label {
     z-index: -2;
     background: var(--bg-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 20%);
+}
+
+.todo-item-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+}
+
+p {
+    margin: 15px 0 15px 15px;
 }
